@@ -29,8 +29,8 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean assembleDebug
       - run: tree
-      - name: Archive builds
-        uses: actions/upload-artifact@v2
-        with:
-          name: settings_apk-debug.apk
-          path: '**/settings_apk-debug.apk'
+      #- name: Archive builds
+      #  uses: actions/upload-artifact@v2
+      #  with:
+      #    name: settings_apk-debug.apk
+      #    path: '**/settings_apk-debug.apk'
