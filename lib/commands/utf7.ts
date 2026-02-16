@@ -26,9 +26,11 @@ export const encode = function encode(str: string, mask: string | null = null): 
   }
 
   // We replace subsequent disallowed chars with their escape sequence.
-  return str.replace(regexes[mask], (chunk) =>
-    // + is represented by an empty sequence +-, otherwise call encode().
-    `+${chunk === '+' ? '' : _encode(chunk)}-`
+  return str.replace(
+    regexes[mask],
+    (chunk) =>
+      // + is represented by an empty sequence +-, otherwise call encode().
+      `+${chunk === '+' ? '' : _encode(chunk)}-`,
   );
 };
 
@@ -39,9 +41,11 @@ export const encode = function encode(str: string, mask: string | null = null): 
  */
 export function encodeAll(str: string): string {
   // We replace subsequent disallowed chars with their escape sequence.
-  return str.replace(regexAll, (chunk) =>
-    // + is represented by an empty sequence +-, otherwise call encode().
-    `+${chunk === '+' ? '' : _encode(chunk)}-`
+  return str.replace(
+    regexAll,
+    (chunk) =>
+      // + is represented by an empty sequence +-, otherwise call encode().
+      `+${chunk === '+' ? '' : _encode(chunk)}-`,
   );
 }
 
@@ -51,7 +55,7 @@ export function encodeAll(str: string): string {
 export const decode = function decode(str: string): string {
   return str.replace(/\+([A-Za-z0-9/]*)-?/gi, (_, chunk) =>
     // &- represents &.
-    chunk === '' ? '+' : _decode(chunk)
+    chunk === '' ? '+' : _decode(chunk),
   );
 };
 
@@ -75,7 +79,7 @@ export const imap = {
   decode(str: string): string {
     return str.replace(/&([^-]*)-/g, (_, chunk) =>
       // &- represents &.
-      chunk === '' ? '&' : _decode(chunk.replace(/,/g, '/'))
+      chunk === '' ? '&' : _decode(chunk.replace(/,/g, '/')),
     );
   },
 };
@@ -100,7 +104,7 @@ function _encode(str: string): string {
     // Upper 8 bits shifted into lower 8 bits so that they fit into 1 byte.
     b[bi++] = c >> 8;
     // Lower 8 bits. Cut off the upper 8 bits so that they fit into 1 byte.
-    b[bi++] = c & 0xFF;
+    b[bi++] = c & 0xff;
   }
   // Modified Base64 uses , instead of / and omits trailing =.
   return b.toString('base64').replace(/=+$/, '');
@@ -119,9 +123,10 @@ function allocateBase64Buffer(str: string): Buffer {
 function _decode(str: string): string {
   const b = allocateBase64Buffer(str);
   const r: string[] = [];
-  for (let i = 0; i < b.length;) {
+  // eslint-disable-next-line @stylistic/space-in-parens
+  for (let i = 0; i < b.length; ) {
     // Calculate charcode from two adjacent bytes.
-    r.push(String.fromCharCode(b[i++] << 8 | b[i++]));
+    r.push(String.fromCharCode((b[i++] << 8) | b[i++]));
   }
   return r.join('');
 }

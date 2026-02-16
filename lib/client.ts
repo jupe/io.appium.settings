@@ -1,22 +1,22 @@
-import { log, LOG_PREFIX } from './logger';
-import { waitForCondition } from 'asyncbox';
-import { SETTINGS_HELPER_ID, SETTINGS_HELPER_MAIN_ACTIVITY } from './constants';
-import { setAnimationState } from './commands/animation';
-import { setBluetoothState, unpairAllBluetoothDevices } from './commands/bluetooth';
-import { getClipboard } from './commands/clipboard';
-import { setGeoLocation, getGeoLocation, refreshGeoLocationCache } from './commands/geolocation';
-import { setDeviceLocale, listSupportedLocales } from './commands/locale';
-import { scanMedia } from './commands/media';
-import { setDataState, setWifiState } from './commands/network';
-import { getNotifications, adjustNotificationsPermissions } from './commands/notifications';
-import { getSmsList } from './commands/sms';
-import { performEditorAction, typeUnicode } from './commands/typing';
+import {log, LOG_PREFIX} from './logger';
+import {waitForCondition} from 'asyncbox';
+import {SETTINGS_HELPER_ID, SETTINGS_HELPER_MAIN_ACTIVITY} from './constants';
+import {setAnimationState} from './commands/animation';
+import {setBluetoothState, unpairAllBluetoothDevices} from './commands/bluetooth';
+import {getClipboard} from './commands/clipboard';
+import {setGeoLocation, getGeoLocation, refreshGeoLocationCache} from './commands/geolocation';
+import {setDeviceLocale, listSupportedLocales} from './commands/locale';
+import {scanMedia} from './commands/media';
+import {setDataState, setWifiState} from './commands/network';
+import {getNotifications, adjustNotificationsPermissions} from './commands/notifications';
+import {getSmsList} from './commands/sms';
+import {performEditorAction, typeUnicode} from './commands/typing';
 import {
   makeMediaProjectionRecorder,
   adjustMediaProjectionServicePermissions,
 } from './commands/media-projection';
-import type { ADB } from 'appium-adb';
-import type { Logger } from '@appium/logger';
+import type {ADB} from 'appium-adb';
+import type {Logger} from '@appium/logger';
 
 export interface SettingsAppOpts {
   adb: ADB;
@@ -49,11 +49,7 @@ export class SettingsApp {
    * @returns Self instance for chaining
    */
   async requireRunning(opts: SettingsAppStartupOptions = {}): Promise<SettingsApp> {
-    const {
-      timeout = 5000,
-      shouldRestoreCurrentApp = false,
-      forceRestart = false,
-    } = opts;
+    const {timeout = 5000, shouldRestoreCurrentApp = false, forceRestart = false} = opts;
 
     if (forceRestart) {
       await this.adb.forceStop(SETTINGS_HELPER_ID);
@@ -124,13 +120,12 @@ export class SettingsApp {
       await this.requireRunning({shouldRestoreCurrentApp: true});
     }
 
-    const output = await this.adb.shell([
-      'am', 'broadcast',
-      ...args,
-    ]);
+    const output = await this.adb.shell(['am', 'broadcast', ...args]);
     if (!output.includes('result=-1')) {
       this.log.debug(LOG_PREFIX, output);
-      const error = new Error(`Cannot execute the '${action}' action. Check the logcat output for more details.`) as Error & { output?: string };
+      const error = new Error(
+        `Cannot execute the '${action}' action. Check the logcat output for more details.`,
+      ) as Error & {output?: string};
       error.output = output;
       throw error;
     }
@@ -150,8 +145,7 @@ export class SettingsApp {
     if (!/\bresult=-1\b/.test(output) || !/\bdata="/.test(output)) {
       this.log.debug(LOG_PREFIX, output);
       throw new Error(
-        `Cannot retrieve ${entityName} from the device. ` +
-        'Check the server log for more details'
+        `Cannot retrieve ${entityName} from the device. ` + 'Check the server log for more details',
       );
     }
     const match = /\bdata="(.+)",?/.exec(output);
@@ -159,7 +153,7 @@ export class SettingsApp {
       this.log.debug(LOG_PREFIX, output);
       throw new Error(
         `Cannot parse ${entityName} from the command output. ` +
-        'Check the server log for more details'
+          'Check the server log for more details',
       );
     }
     const jsonStr = match[1].trim();
@@ -169,7 +163,7 @@ export class SettingsApp {
       log.debug(jsonStr);
       throw new Error(
         `Cannot parse ${entityName} from the resulting data string. ` +
-        'Check the server log for more details'
+          'Check the server log for more details',
       );
     }
   }

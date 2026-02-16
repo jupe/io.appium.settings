@@ -15,8 +15,10 @@ function getModuleRootSync(): string {
   while (!isAtFsRoot) {
     const manifestPath = path.join(currentDir, 'package.json');
     try {
-      if (fs.existsSync(manifestPath) &&
-          JSON.parse(fs.readFileSync(manifestPath, 'utf8')).name === MODULE_NAME) {
+      if (
+        fs.existsSync(manifestPath) &&
+        JSON.parse(fs.readFileSync(manifestPath, 'utf8')).name === MODULE_NAME
+      ) {
         return currentDir;
       }
     } catch {}
