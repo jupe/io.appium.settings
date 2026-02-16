@@ -1,3 +1,9 @@
+## [7.0.19](https://github.com/appium/io.appium.settings/compare/v7.0.18...v7.0.19) (2026-02-16)
+
+### Bug Fixes
+
+* format ([#274](https://github.com/appium/io.appium.settings/issues/274)) ([75df6bd](https://github.com/appium/io.appium.settings/commit/75df6bd725ebf011b529472e4a67491219245d74))
+
 ## [7.0.18](https://github.com/appium/io.appium.settings/compare/v7.0.17...v7.0.18) (2026-01-30)
 
 ### Miscellaneous Chores
