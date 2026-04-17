@@ -1,3 +1,10 @@
+## [7.0.23](https://github.com/appium/io.appium.settings/compare/v7.0.22...v7.0.23) (2026-04-17)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump typescript from 5.9.3 to 6.0.3 ([#281](https://github.com/appium/io.appium.settings/issues/281)) ([6f143e4](https://github.com/appium/io.appium.settings/commit/6f143e468c54fbeded4bac57355aac0269283097))
+* **deps:** bump com.android.tools.build:gradle from 9.1.0 to 9.1.1 ([#280](https://github.com/appium/io.appium.settings/issues/280)) ([94e5e6c](https://github.com/appium/io.appium.settings/commit/94e5e6ccfb2d9c72a9713977085778bb4ee48cc7))
+
 ## [7.0.22](https://github.com/appium/io.appium.settings/compare/v7.0.21...v7.0.22) (2026-03-19)
 
 ### Miscellaneous Chores
