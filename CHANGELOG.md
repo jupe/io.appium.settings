@@ -1,3 +1,9 @@
+## [7.0.26](https://github.com/appium/io.appium.settings/compare/v7.0.25...v7.0.26) (2026-05-01)
+
+### Bug Fixes
+
+* fix lint ([#284](https://github.com/appium/io.appium.settings/issues/284)) ([9510e03](https://github.com/appium/io.appium.settings/commit/9510e032493c4f63dbeb5dc415f75a7e9c6bd120))
+
 ## [7.0.25](https://github.com/appium/io.appium.settings/compare/v7.0.24...v7.0.25) (2026-04-30)
 
 ### Miscellaneous Chores
