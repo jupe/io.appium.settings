@@ -1,3 +1,9 @@
+## [7.0.27](https://github.com/appium/io.appium.settings/compare/v7.0.26...v7.0.27) (2026-05-02)
+
+### Miscellaneous Chores
+
+* remove lodash ([#285](https://github.com/appium/io.appium.settings/issues/285)) ([f78edb4](https://github.com/appium/io.appium.settings/commit/f78edb4b9d7f3e0a55214e49fc0f09fea509da9a))
+
 ## [7.0.26](https://github.com/appium/io.appium.settings/compare/v7.0.25...v7.0.26) (2026-05-01)
 
 ### Bug Fixes
