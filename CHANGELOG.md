@@ -1,3 +1,10 @@
+## [7.0.28](https://github.com/appium/io.appium.settings/compare/v7.0.27...v7.0.28) (2026-05-06)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump sinon from 21.1.2 to 22.0.0 ([#286](https://github.com/appium/io.appium.settings/issues/286)) ([ea406e9](https://github.com/appium/io.appium.settings/commit/ea406e99044cb290fef4f2d15df3674b646854c8))
+* **deps:** bump com.android.tools.build:gradle from 9.2.0 to 9.2.1 ([#287](https://github.com/appium/io.appium.settings/issues/287)) ([5bf7a61](https://github.com/appium/io.appium.settings/commit/5bf7a6133dacf21f6b11ffa15cf9baf905b79ecd))
+
 ## [7.0.27](https://github.com/appium/io.appium.settings/compare/v7.0.26...v7.0.27) (2026-05-02)
 
 ### Miscellaneous Chores
