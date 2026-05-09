@@ -1,3 +1,9 @@
+## [7.1.0](https://github.com/appium/io.appium.settings/compare/v7.0.28...v7.1.0) (2026-05-09)
+
+### Features
+
+* Ditch bluabird ([#288](https://github.com/appium/io.appium.settings/issues/288)) ([95389dc](https://github.com/appium/io.appium.settings/commit/95389dcca8fc0a2e4c439fd26191ce206698a323))
+
 ## [7.0.28](https://github.com/appium/io.appium.settings/compare/v7.0.27...v7.0.28) (2026-05-06)
 
 ### Miscellaneous Chores
