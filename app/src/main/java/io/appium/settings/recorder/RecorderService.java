@@ -72,11 +72,13 @@ public class RecorderService extends Service {
     public int onStartCommand(final Intent intent, final int flags, final int startId) {
         if (intent == null) {
             Log.e(TAG, "onStartCommand: Unable to retrieve recording intent");
+            stopRecord();
             return START_NOT_STICKY;
         }
         final String action = intent.getAction();
         if (action == null) {
             Log.e(TAG, "onStartCommand: Unable to retrieve recording intent:action");
+            stopRecord();
             return START_NOT_STICKY;
         }
 
@@ -88,10 +90,15 @@ public class RecorderService extends Service {
                     (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
 
             if (mMediaProjectionManager != null) {
-                startRecord(mMediaProjectionManager, intent);
+                final boolean isStarted = startRecord(mMediaProjectionManager, intent);
+                if (!isStarted) {
+                    stopRecord();
+                    result = START_NOT_STICKY;
+                }
             } else {
                 Log.e(TAG, "onStartCommand: " +
                         "Unable to retrieve MediaProjectionManager instance");
+                stopRecord();
                 result = START_NOT_STICKY;
             }
         } else if (ACTION_RECORDING_STOP.equals(action)) {
@@ -101,6 +108,7 @@ public class RecorderService extends Service {
         } else {
             Log.v(TAG, "onStartCommand: Received unknown recording intent with action: "
                     + action);
+            stopRecord();
             result = START_NOT_STICKY;
         }
 
@@ -111,12 +119,12 @@ public class RecorderService extends Service {
      * start recording
      */
     @RequiresApi(api = Build.VERSION_CODES.Q)
-    private void startRecord(MediaProjectionManager mediaProjectionManager,
-                             final Intent intent) {
+    private boolean startRecord(MediaProjectionManager mediaProjectionManager,
+                                final Intent intent) {
         if (recorderThread != null) {
             if (recorderThread.isRecordingRunning()) {
                 Log.v(TAG, "Recording is already continuing, exiting");
-                return;
+                return true;
             } else {
                 Log.w(TAG, "Recording is stopped, " +
                         "but recording instance is still alive, starting recording");
@@ -125,18 +133,18 @@ public class RecorderService extends Service {
         }
 
         int resultCode = intent.getIntExtra(ACTION_RECORDING_RESULT_CODE, 0);
-        // get MediaProjection
-        final MediaProjection projection = mediaProjectionManager.getMediaProjection(resultCode,
-                intent);
-        if (projection == null) {
-            Log.e(TAG, "Recording is stopped, Unable to retrieve MediaProjection instance");
-            return;
-        }
 
         String outputFilePath = intent.getStringExtra(ACTION_RECORDING_FILENAME);
         if (outputFilePath == null) {
             Log.e(TAG, "Recording is stopped, Unable to retrieve outputFilePath instance");
-            return;
+            return false;
+        }
+
+        final MediaProjection projection = mediaProjectionManager.getMediaProjection(resultCode,
+                intent);
+        if (projection == null) {
+            Log.e(TAG, "Recording is stopped, Unable to retrieve MediaProjection instance");
+            return false;
         }
 
         /* TODO we need to rotate frames that comes from virtual screen before writing to file via muxer,
@@ -181,6 +189,7 @@ public class RecorderService extends Service {
                 resolutionWidth, resolutionHeight, rawDpi,
                 recordingRotationDegree, recordingPriority, recordingMaxDuration);
         recorderThread.startRecording();
+        return true;
     }
 
     /**
@@ -191,6 +200,7 @@ public class RecorderService extends Service {
             recorderThread.stopRecording();
             recorderThread = null;
         }
+        stopForeground(true);
         stopSelf();
     }
 
