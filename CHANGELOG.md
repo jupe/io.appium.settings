@@ -1,3 +1,9 @@
+## [7.1.2](https://github.com/appium/io.appium.settings/compare/v7.1.1...v7.1.2) (2026-05-16)
+
+### Bug Fixes
+
+* call stop service explicitly for foreground service ([#291](https://github.com/appium/io.appium.settings/issues/291)) ([706466b](https://github.com/appium/io.appium.settings/commit/706466bf0bec3e93c32a03c5950d9a1ba12177e4))
+
 ## [7.1.1](https://github.com/appium/io.appium.settings/compare/v7.1.0...v7.1.1) (2026-05-12)
 
 ### Miscellaneous Chores
