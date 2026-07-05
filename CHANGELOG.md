@@ -1,3 +1,9 @@
+## [7.1.10](https://github.com/appium/io.appium.settings/compare/v7.1.9...v7.1.10) (2026-07-05)
+
+### Miscellaneous Chores
+
+* Drop mocha ([#300](https://github.com/appium/io.appium.settings/issues/300)) ([b404773](https://github.com/appium/io.appium.settings/commit/b4047730fb275702b236ab0c8f82c01074ab3f7f))
+
 ## [7.1.9](https://github.com/appium/io.appium.settings/compare/v7.1.8...v7.1.9) (2026-07-01)
 
 ### Miscellaneous Chores
