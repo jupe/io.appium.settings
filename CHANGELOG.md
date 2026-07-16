@@ -1,3 +1,9 @@
+## [7.1.11](https://github.com/appium/io.appium.settings/compare/v7.1.10...v7.1.11) (2026-07-16)
+
+### Miscellaneous Chores
+
+* **deps:** bump com.android.tools.build:gradle from 9.2.1 to 9.3.0 ([#304](https://github.com/appium/io.appium.settings/issues/304)) ([33aa63f](https://github.com/appium/io.appium.settings/commit/33aa63f58203dca51a232ae9150ea09e5760ad42))
+
 ## [7.1.10](https://github.com/appium/io.appium.settings/compare/v7.1.9...v7.1.10) (2026-07-05)
 
 ### Miscellaneous Chores
