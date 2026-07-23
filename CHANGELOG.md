@@ -1,3 +1,13 @@
+## [8.0.0](https://github.com/appium/io.appium.settings/compare/v7.1.11...v8.0.0) (2026-07-23)
+
+### ⚠ BREAKING CHANGES
+
+* Consumers using require('io.appium.settings') must switch to import/dynamic import() — the package no longer ships a CommonJS entry point.
+
+### Features
+
+* Migrate the package to ESM ([#307](https://github.com/appium/io.appium.settings/issues/307)) ([208dddf](https://github.com/appium/io.appium.settings/commit/208dddf1f93a76de5a420cde49cdd51719598b15))
+
 ## [7.1.11](https://github.com/appium/io.appium.settings/compare/v7.1.10...v7.1.11) (2026-07-16)
 
 ### Miscellaneous Chores
