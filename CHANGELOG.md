@@ -1,3 +1,9 @@
+## [8.0.1](https://github.com/appium/io.appium.settings/compare/v8.0.0...v8.0.1) (2026-07-23)
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump appium-adb from 15.0.9 to 16.0.0 ([#308](https://github.com/appium/io.appium.settings/issues/308)) ([2091df1](https://github.com/appium/io.appium.settings/commit/2091df1d793af04511d45a2089526627b7a06ca3))
+
 ## [8.0.0](https://github.com/appium/io.appium.settings/compare/v7.1.11...v8.0.0) (2026-07-23)
 
 ### ⚠ BREAKING CHANGES
