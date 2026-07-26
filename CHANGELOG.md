@@ -1,3 +1,9 @@
+## [8.0.3](https://github.com/appium/io.appium.settings/compare/v8.0.2...v8.0.3) (2026-07-26)
+
+### Miscellaneous Chores
+
+* Integrate oxc and release configs ([#311](https://github.com/appium/io.appium.settings/issues/311)) ([921755a](https://github.com/appium/io.appium.settings/commit/921755a15846319568a31cb02fcf1d61ec311325))
+
 ## [8.0.2](https://github.com/appium/io.appium.settings/compare/v8.0.1...v8.0.2) (2026-07-24)
 
 ### Miscellaneous Chores
