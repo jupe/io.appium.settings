@@ -1,3 +1,9 @@
+## [8.0.4](https://github.com/appium/io.appium.settings/compare/v8.0.3...v8.0.4) (2026-07-27)
+
+### Miscellaneous Chores
+
+* Ditch chai ([#312](https://github.com/appium/io.appium.settings/issues/312)) ([df48b8e](https://github.com/appium/io.appium.settings/commit/df48b8e790e08d128828fd6e1aa2915d7858f506))
+
 ## [8.0.3](https://github.com/appium/io.appium.settings/compare/v8.0.2...v8.0.3) (2026-07-26)
 
 ### Miscellaneous Chores
