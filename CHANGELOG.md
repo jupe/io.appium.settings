@@ -1,3 +1,9 @@
+## [8.0.5](https://github.com/appium/io.appium.settings/compare/v8.0.4...v8.0.5) (2026-07-28)
+
+### Miscellaneous Chores
+
+* Tune editorconfig ([7392d09](https://github.com/appium/io.appium.settings/commit/7392d095cc91aaf6dfbb42b1f9fe288a5ac6c111))
+
 ## [8.0.4](https://github.com/appium/io.appium.settings/compare/v8.0.3...v8.0.4) (2026-07-27)
 
 ### Miscellaneous Chores
